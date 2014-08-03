@@ -18,8 +18,8 @@ namespace AndroidTouchMouseServer {
 
         public AboutForm(IPAddress[] listenAddresses) {
             InitializeComponent();
-            SetFormText();
             this.listenAddresses = listenAddresses;
+            SetFormText();
         }
 
         private void SetFormText() {

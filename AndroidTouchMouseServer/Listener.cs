@@ -40,7 +40,6 @@ namespace AndroidTouchMouseServer {
                 while (true) {
                     
                     Socket handler = server.Accept();
-                    //Console.WriteLine("Connected");
                     data = null;
                     while (true) {
                         bytes = new byte[1024];
