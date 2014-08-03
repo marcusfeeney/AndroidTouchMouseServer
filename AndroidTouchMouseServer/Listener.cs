@@ -36,7 +36,6 @@ namespace AndroidTouchMouseServer {
                 server.Listen(10);
                 Log.WriteInfo("Listening on " + localhost.ToString() + ":" + port);
                 Log.WriteInfo("Usable screen space: " + desktopWidth + "x" + desktopHeight);
-
                 while (true) {
                     
                     Socket handler = server.Accept();
@@ -68,6 +67,7 @@ namespace AndroidTouchMouseServer {
                 }
             }
             catch (SocketException e) {
+                Console.WriteLine(e.Message);
                 Log.WriteErr(e.Message);
             }
             finally {
