@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -13,10 +14,10 @@ using System.Windows.Forms;
 namespace AndroidTouchMouseServer {
     class Listener {
 
-        Int32 port = Convert.ToInt32(ConfigurationManager.AppSettings["port"]);
-        IPAddress localhost = IPAddress.Any;
-        byte[] bytes = new Byte[256];
-        String data = null;
+        private Int32 port = Convert.ToInt32(ConfigurationManager.AppSettings["port"]);
+        private IPAddress localhost = IPAddress.Any;
+        private byte[] bytes;
+        private String data = null;
 
         private const int MOUSEEVENT_LEFTDOWN = 0x0002;
         private const int MOUSEEVENT_LEFTUP = 0x0004;
@@ -41,7 +42,7 @@ namespace AndroidTouchMouseServer {
                     Socket handler = server.Accept();
                     data = null;
                     while (true) {
-                        bytes = new byte[1024];
+                        bytes = new byte[256];
                         int bytesRecieved = handler.Receive(bytes);
                         data += System.Text.Encoding.ASCII.GetString(bytes, 0, bytesRecieved);
                         if (data.IndexOf(";") > -1) {

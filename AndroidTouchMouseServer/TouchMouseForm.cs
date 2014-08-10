@@ -16,7 +16,7 @@ namespace AndroidTouchMouseServer {
         private NotifyIcon trayIcon;
         private ContextMenu trayMenu;
         private BackgroundWorker bw;
-        IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
+        private IPHostEntry host = Dns.GetHostEntry(Dns.GetHostName());
 
         public TouchMouseForm() {
             InitializeComponent();
