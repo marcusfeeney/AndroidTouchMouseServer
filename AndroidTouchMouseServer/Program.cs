@@ -23,7 +23,7 @@ namespace AndroidTouchMouseServer {
                 Log.WriteInfo("TouchMouseServer starting");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new TouchMouseForm());
+                Application.Run(new TouchMouseForm(true));
             }
         }
     }
